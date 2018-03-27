@@ -9,54 +9,45 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    String name = request.getParameter("name");
+    if(request.getMethod().equalsIgnoreCase("post")) {
+    String username = request.getParameter("username");
     String password = request.getParameter("password");
-    if (name == null) {
-        name = "World";
-        }
-    if (name.equals("admin") && password.equals("password")) {
-        // redirect to the profile page
-         response.sendRedirect("/profile.jsp");
+    if(username.equals("admin") && password.equals("password")) {
+        response.sendRedirect("/profile.jsp");
     }
-//    else if(name.equals("") || password.equals("")) {
-//        response.sendRedirect("/login.jsp");
-//    }
-
+}
 %>
 
-<%--<c:if test="${false}">--%>
-    <%--<h2>You will never see this</h2>--%>
-<%--</c:if>--%>
-
-<%--<c:if test="${true}">--%>
-    <%--<h2>You will *always* see this.</h2>--%>
-<%--</c:if>--%>
 
 
 <html>
 <head>
+    <jsp:include page="partials/head.jsp">
+        <jsp:param name="title" value="Please Log In" />
+    </jsp:include>
+
     <title>Hello There!</title>
 </head>
 <body>
 
 <jsp:include page="partials/welcome-navbar.jsp" />
 
-<h1 style="text-align: center" >Hello, <%= name %></h1>
 
 <p style="text-align: center">Please Login</p>
-
+<div class="container">
 <form style="text-align: center" method="POST" action="login.jsp">
     <div class="form-group">
     <label for="username">Username</label>
-    <input id="username" type="text" name="name" />
+    <input id="username" type="text" class="form-control" name="username" />
     </div>
 
     <div class="form-group">
     <label for="password">Password</label>
-    <input id="password" type="password" name="password" />
+    <input id="password" type="password" class="form-control" name="password" />
     </div>
     <input type="submit" class="btn btn-primary btn-block" value="Log In">
 </form>
+</div>
 
 </body>
 </html>

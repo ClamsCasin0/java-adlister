@@ -9,3 +9,6 @@
 <div style="padding: 20px; text-align: center; background: steelblue">
     <h1>Howdy There!</h1>
 </div>
+
+<%--add nav bar--%>
+<%--<nav class=""></nav>--%>

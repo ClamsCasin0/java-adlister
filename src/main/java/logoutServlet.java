@@ -8,8 +8,6 @@ import java.io.IOException;
 @WebServlet(name = "logoutServlet", urlPatterns = "/logout")
 public class logoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        HttpSession session = request.getSession();
-//        session.setAttribute();
 
         request.getSession().removeAttribute("user");
         request.getSession().invalidate();

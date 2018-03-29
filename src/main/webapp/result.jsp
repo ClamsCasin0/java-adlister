@@ -25,7 +25,7 @@
 
     <h1>${message}</h1>
 
-    <c:if test="${!message.equals('YOU WON!')}">
+    <c:if test="${!message.equals(\"YOU WON!\")}">
     <<a href="/guess">Guess again</a>
     </c:if>
 

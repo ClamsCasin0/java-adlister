@@ -13,14 +13,20 @@
     <title>Title</title>
 </head>
 <body>
+
+<jsp:include page="/partials/navbar.jsp" />
 <h1>Welcome to ads!</h1>
 
 <c:forEach var="ad" items="${ads}">
+    <div class="col-md-6">
     <h1>${ad.title}</h1>
     <hr>
     <p>${ad.description}</p>
+    </div>
 </c:forEach>
 
+
+<%--add create bonus , not complete--%>
 <h1>Create a new Ad</h1>
         <form action="/ads/create" method="POST">
                 <div class="form-group">

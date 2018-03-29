@@ -8,25 +8,13 @@ import java.io.IOException;
 @WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-//        i think this goes here?
-        if (request.getSession().getAttribute("user") == false) {
-            response.sendRedirect('/login');
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/login");
             return;
         }
-//              this one too
-        if (request.getSession().getAttribute("is_logged_in") == false)  {
-            response.getWriter().println("<h1>You're unauthorized, go away!</h1>");
-        }
-
-
-        //                                         maybe here too?
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
-
-
-
-
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

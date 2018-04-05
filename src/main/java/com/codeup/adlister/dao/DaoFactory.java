@@ -3,6 +3,7 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Config;
 
 public class DaoFactory {
+    private static Users usersDao;
     private static Ads adsDao;
     private static Config config = new Config();
 
